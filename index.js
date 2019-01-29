@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3004
+const { PORT } = require('./config/config')
 const { contactRouter } = require('./app/controlers/contact_controlers')
 const { usersRouter } = require('./app/controlers/user_controller')
 require('./config/database')
@@ -14,6 +14,6 @@ app.get ('/',(req, res)=>{
 app.use('/contacts', contactRouter)
 app.use('/users', usersRouter)
 
-app.listen(port, ()=>{
-    console.log('Listening to port', port)
+app.listen(PORT, ()=>{
+    console.log('Listening to port', PORT)
 })
